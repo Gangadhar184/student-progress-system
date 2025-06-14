@@ -1,6 +1,11 @@
 const express = require("express");
 const connectDB = require("./src/config/database.js");
 const app = express();
+const studentRoutes = require("./src/routes/studentRoutes.js");
+
+app.use(express.json());
+
+app.use("/students", studentRoutes);
 
 connectDB()
   .then(() => {
