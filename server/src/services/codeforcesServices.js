@@ -35,7 +35,7 @@ async function saveOrUpdateCFProfile(studentId, handle) {
     if(existing) {
         await CfProfile.updateOne({studentId}, {...data});
     }else{
-        (await CfProfile).createConnection({...data, studentId})
+      await CfProfile.create({...data, studentId})
     }
 }
 
