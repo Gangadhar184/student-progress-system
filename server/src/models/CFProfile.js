@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const cfProfileSchema = new Schema({
+const cfProfileSchema = new mongoose.Schema({
     studentId : {
         type: mongoose.Schema.Types.ObjectId, ref: "Student", required: true
     },
@@ -17,7 +17,7 @@ const cfProfileSchema = new Schema({
     lastFetchedAt: Date
 }, {timeStamps: true});
 
-const CfProfile = mongoose.connect('CfProfile', cfProfileSchema);
+const CfProfile = mongoose.model('CfProfile', cfProfileSchema);
 
 module.exports = CfProfile;
 
